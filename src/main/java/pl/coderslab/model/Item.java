@@ -17,11 +17,16 @@ public class Item {
     @Size(min=2, max=100)
     private String name;
 
+    @Size(max=200)
+    private String description;
+
     private LocalDateTime created;
 
     @Min(0)
     @Max(10)
     private int importance;
+
+    private boolean archived = false;
 
     public Category getCategory() {
         return category;
@@ -46,6 +51,8 @@ public class Item {
     public void setImportance(int importance) {
         this.importance = importance;
     }
+
+
 
     @ManyToOne
     private User user;
@@ -82,13 +89,31 @@ public class Item {
         this.user = user;
     }
 
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", created=" + created +
                 ", importance=" + importance +
+                ", archived=" + archived +
                 ", user=" + user +
                 ", category=" + category +
                 '}';

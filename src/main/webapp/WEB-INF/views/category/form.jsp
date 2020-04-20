@@ -43,7 +43,7 @@
                    aria-expanded="false">Add Stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/item/form">Add Item</a>
-                    <a class="dropdown-item" href="#">Add Category</a>
+                    <a class="dropdown-item" href="/category/form">Add Category</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
@@ -58,51 +58,20 @@
 <main role="main" class="container">
     <div class="jumbotron">
 
-        <form:form modelAttribute="item" method="post">
+        <form:form modelAttribute="category" method="post">
             <form:hidden path="id"/>
-        <div class="form-group rowColor">
-            <label for="name" class="col-sm-2 col-form-label">name</label>
-            <div class="col-sm-10">
-                <form:input path="name" cssClass="form-control" id="name" placeholder="Enter name"/>
-                <form:errors path="name"/><br>
+            <div class="form-group rowColor">
+                <label for="name" class="col-sm-2 col-form-label">name</label>
+                <div class="col-sm-10">
+                    <form:input path="name" cssClass="form-control" id="name" placeholder="Enter name"/>
+                    <form:errors path="name"/><br>
+                </div>
             </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="importance" class="col-sm-2 col-form-label">Importance</label>
-            <div class="col-sm-10">
-                <form:select path="importance" cssClass="form-control" id="importance" placeholder="Enter importance">
-                    <form:option value="1"> 1 </form:option>
-                    <form:option value="2"> 2 </form:option>
-                    <form:option value="3"> 3 </form:option>
-                    <form:option value="4"> 4 </form:option>
-                    <form:option value="5"> 5 </form:option>
-                    <form:option value="6"> 6 </form:option>
-                    <form:option value="7"> 7 </form:option>
-                    <form:option value="8"> 8 </form:option>
-                    <form:option value="9"> 9 </form:option>
-                    <form:option value="10"> 10 </form:option>
-                    <form:errors path="importance"/><br>
-                </form:select>
-            </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="category.id" class="col-sm-2 col-form-label">category</label>
-            <div class="col-sm-10">
-                <form:select items="${categories}" path="category.id" itemValue="id" itemLabel="name"/>
-                <form:errors path="category" cssClass="error"/><br>
-            </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="description" class="col-sm-2 col-form-label">description</label>
-            <div class="col-sm-10">
-                <form:textarea path="description" cssClass="form-control" id="description" placeholder="describe your item"/>
-                <form:errors path="description"/><br>
-            </div>
-        </div>
-                <button type="submit" class="btn btn-primary">Add item</button>
-                </form:form>
 
-            </div>
+            <button type="submit" class="btn btn-primary">Add category</button>
+        </form:form>
+
+    </div>
 
 </main>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
