@@ -28,6 +28,18 @@ public class Item {
 
     private boolean archived = false;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @ManyToOne
+    private Category category;
+
+    @PrePersist
+    public void setCreatedOnPersist() {
+        created = LocalDateTime.now();
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -54,16 +66,7 @@ public class Item {
 
 
 
-    @ManyToOne
-    private User user;
 
-    @ManyToOne
-    private Category category;
-
-    @PrePersist
-    public void setCreatedOnPersist() {
-        created = LocalDateTime.now();
-    }
 
     public Long getId() {
         return id;
@@ -88,6 +91,7 @@ public class Item {
     public void setUser(User user) {
         this.user = user;
     }
+
 
     public boolean isArchived() {
         return archived;

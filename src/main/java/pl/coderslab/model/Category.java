@@ -13,6 +13,18 @@ public class Category {
 
     private String name;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,6 +46,7 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

@@ -1,34 +1,31 @@
 package pl.coderslab.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Category;
-import pl.coderslab.model.Item;
+import pl.coderslab.model.User;
 import pl.coderslab.repository.CategoryRepository;
-import pl.coderslab.repository.ItemRepository;
 import pl.coderslab.repository.UserRepository;
+import pl.coderslab.service.CurrentUser;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @RequestMapping("/category")
-
 public class CategoryController {
 
-    private ItemRepository itemRepository;
     private UserRepository userRepository;
     private CategoryRepository categoryRepository;
+    private CurrentUser currentUser;
 
-    public CategoryController(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository) {
-        this.itemRepository = itemRepository;
+    public CategoryController(UserRepository userRepository, CategoryRepository categoryRepository) {
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
+
     }
 
     @RequestMapping(path = "/form", method = RequestMethod.GET)
@@ -39,16 +36,26 @@ public class CategoryController {
     }
 
     @RequestMapping(path = "/form", method = RequestMethod.POST)
-    public String saveForm(@Valid Category category, BindingResult result) {
+    public String saveForm(@Valid Category category, BindingResult result, @AuthenticationPrincipal CurrentUser customUser) {
         if (result.hasErrors()) {
             return "category/form";
         }
+        User user = customUser.getUser();
+        category.setUser(user);
         categoryRepository.save(category);
         return "redirect:all";
     }
 
-    @ModelAttribute("categories")
-    public List<Category> getAllCategories(){
+    @RequestMapping("/all")
+    @ResponseBody
+    public List<Category> showAllCategories() {
         return categoryRepository.findAll();
     }
+
+    @ModelAttribute("categories")
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+
 }

@@ -60,6 +60,7 @@
 
         <form:form modelAttribute="category" method="post">
             <form:hidden path="id"/>
+            <form:hidden path="user.id"/>
             <div class="form-group rowColor">
                 <label for="name" class="col-sm-2 col-form-label">name</label>
                 <div class="col-sm-10">

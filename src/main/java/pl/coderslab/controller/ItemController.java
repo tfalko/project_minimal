@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,7 +11,9 @@ import pl.coderslab.model.User;
 import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.ItemRepository;
 import pl.coderslab.repository.UserRepository;
+import pl.coderslab.service.CurrentUser;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -18,9 +21,11 @@ import java.util.List;
 @RequestMapping("/item")
 public class ItemController {
 
+    private CurrentUser currentUser;
     private ItemRepository itemRepository;
     private UserRepository userRepository;
     private CategoryRepository categoryRepository;
+
 
     public ItemController(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository) {
         this.itemRepository = itemRepository;
@@ -36,13 +41,19 @@ public class ItemController {
     }
 
     @RequestMapping(path = "/form", method = RequestMethod.POST)
-    public String saveForm(@Valid Item item, BindingResult result) {
+    public String saveForm(@Valid Item item, BindingResult result, @AuthenticationPrincipal CurrentUser customUser) {
         if (result.hasErrors()) {
             return "item/form";
         }
+
+        User user = customUser.getUser();
+        item.setUser(user);
         itemRepository.save(item);
+
         return "redirect:all";
     }
+
+
 
 
     @RequestMapping("/all")
@@ -55,5 +66,6 @@ public class ItemController {
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
+
 
 }
