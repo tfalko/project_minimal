@@ -48,14 +48,13 @@ public class CategoryController {
     }
 
     @RequestMapping("/all")
-    @ResponseBody
-    public List<Category> showAllCategories() {
-        return categoryRepository.findAll();
+    public String showAllCategories() {
+        return "category/all";
     }
 
     @ModelAttribute("categories")
-    public List<Category> getAllCategories(HttpSession session) {
-        Long id = (Long) session.getAttribute("id");
+    public List<Category> getAllCategories(@AuthenticationPrincipal CurrentUser currentUser) {
+        Long id = currentUser.getUser().getId();
         return categoryRepository.findAllByUser_Id(id);
     }
 

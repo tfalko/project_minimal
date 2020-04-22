@@ -38,8 +38,7 @@
 <body class="">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -54,9 +53,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true">Register</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Stats</a>
+            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Add Stuff</a>
+                <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/item/form">Add Item</a>
                     <a class="dropdown-item" href="/category/form">Add Category</a>
@@ -64,10 +65,17 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Display stuff</a>
+                <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
-                    <a class="dropdown-item" href="">Add Item</a>
+                    <a class="dropdown-item" href="/item/all">All items</a>
+                    <a class="dropdown-item" href="/category/all">All categories</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown02">
+                    <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="">Add Category</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
@@ -91,6 +99,7 @@
                 <td>Name</td>
                 <td>Category</td>
                 <td>Importance</td>
+                <td>Action</td>
             </tr>
             </th>
             <c:forEach items="${items}" var="item" varStatus="loopCounter">
@@ -100,6 +109,8 @@
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.name}"/></td>
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.category.name}"/></td>
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.importance}"/></td>
+                    <td data-toggle="collapse" data-target="#collapseTwo"><a href="/item/form?id=${item.id}">Edit</a></td>
+
 
                 <%--                    <td data-toggle="collapse" data-target="#collapseTwo">desc</td>--%>
                 </tr>

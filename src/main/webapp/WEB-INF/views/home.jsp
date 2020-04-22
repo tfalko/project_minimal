@@ -39,6 +39,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true">Register</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Stats</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -49,6 +52,14 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown02">
+                    <a class="dropdown-item" href="/item/all">All items</a>
+                    <a class="dropdown-item" href="/category/all">All categories</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="">Add Category</a>

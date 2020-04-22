@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +13,9 @@ import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.ItemRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.CurrentUser;
+import pl.coderslab.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
@@ -25,6 +28,7 @@ public class ItemController {
     private ItemRepository itemRepository;
     private UserRepository userRepository;
     private CategoryRepository categoryRepository;
+    private UserService userService;
 
 
     public ItemController(ItemRepository itemRepository, UserRepository userRepository, CategoryRepository categoryRepository) {
@@ -54,28 +58,15 @@ public class ItemController {
     }
 
 
-
-
-//    @RequestMapping("/all")
-//    @ResponseBody
-//    public List<Item> showAllItems(){
-//        return itemRepository.findAll();
-//    }
-
     @ModelAttribute("categories")
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
 
-//    @ModelAttribute("items")
-//    public List<Item> getAllItems(){
-//        return itemRepository.findAll();
-//    }
 
     @ModelAttribute("items")
-    public List<Item> getAllItems(HttpSession session){
-
-        Long id = (Long) session.getAttribute("id");
+    public List<Item> getAllItems(@AuthenticationPrincipal CurrentUser currentUser, HttpServletRequest request){
+        Long id = currentUser.getUser().getId();
         return itemRepository.findAllByUser_Id(id);
     }
 
@@ -83,5 +74,7 @@ public class ItemController {
     public String tableAll(){
         return "/item/all";
     }
+
+
 
 }
