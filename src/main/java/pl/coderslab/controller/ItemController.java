@@ -56,16 +56,32 @@ public class ItemController {
 
 
 
-    @RequestMapping("/all")
-    @ResponseBody
-    public List<Item> showAllItems(){
-        return itemRepository.findAll();
-    }
+//    @RequestMapping("/all")
+//    @ResponseBody
+//    public List<Item> showAllItems(){
+//        return itemRepository.findAll();
+//    }
 
     @ModelAttribute("categories")
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
 
+//    @ModelAttribute("items")
+//    public List<Item> getAllItems(){
+//        return itemRepository.findAll();
+//    }
+
+    @ModelAttribute("items")
+    public List<Item> getAllItems(HttpSession session){
+
+        Long id = (Long) session.getAttribute("id");
+        return itemRepository.findAllByUser_Id(id);
+    }
+
+    @RequestMapping("/all")
+    public String tableAll(){
+        return "/item/all";
+    }
 
 }

@@ -73,10 +73,15 @@ public class UserController {
         if (result.hasErrors()) {
             return "login";
         }
-//        session.setAttribute("cu", currentUser);
+        session.setAttribute("id", currentUser.getUser().getId());
 //        session.setAttribute("user", currentUser.getUser());
         userRepository.save(user);
         return "redirect:/";
+    }
+
+    @RequestMapping
+    public String logout(){
+        return "logout";
     }
 
 //

@@ -11,6 +11,7 @@ import pl.coderslab.repository.CategoryRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.CurrentUser;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -53,8 +54,9 @@ public class CategoryController {
     }
 
     @ModelAttribute("categories")
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<Category> getAllCategories(HttpSession session) {
+        Long id = (Long) session.getAttribute("id");
+        return categoryRepository.findAllByUser_Id(id);
     }
 
 

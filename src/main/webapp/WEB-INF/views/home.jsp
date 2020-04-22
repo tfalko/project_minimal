@@ -50,7 +50,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
-                    <a class="dropdown-item" href="">Add Item</a>
+                    <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="">Add Category</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>

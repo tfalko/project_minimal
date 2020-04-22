@@ -2,8 +2,6 @@ package pl.coderslab.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 import java.util.Collection;
 
 public class CurrentUser extends User {
