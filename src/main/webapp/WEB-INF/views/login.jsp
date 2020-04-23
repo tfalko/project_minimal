@@ -73,10 +73,10 @@
 
     </div>
 </nav>
-
+<div class="text-center">
 <main role="main" class="container">
     <div class="jumbotron">
-
+        <form class="sign-in">
         <form:form method="post" modelAttribute="user">
             <form:hidden path="id" />
             <div><label> User Name : <input type="text" name="username"/> </label></div>
@@ -84,8 +84,9 @@
             <div><input type="submit" value="Sign In"/></div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form:form>
+        </form>
     </div>
-
+    </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

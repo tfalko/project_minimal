@@ -19,6 +19,13 @@
         -o-background-size: cover;
 
     }
+     /*#footer {*/
+     /*    position: fixed;*/
+     /*    left: 0;*/
+     /*    bottom: 0;*/
+     /*    width: 100%;*/
+     /*}*/
+
 </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -87,8 +94,11 @@
 
 <p>where is my background???</p>
 
-<img src="/static/background2.jpg">
-
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
+<%--<footer class="page-footer font-small blue" id="footer">--%>
+<%--    <div class="footer-copyright text-center py-3">© 2020 Copyright: t.falkowski--%>
+<%--    </div>--%>
+<%--</footer>--%>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
