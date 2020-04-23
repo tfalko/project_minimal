@@ -109,7 +109,11 @@
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.name}"/></td>
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.category.name}"/></td>
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${item.importance}"/></td>
-                    <td data-toggle="collapse" data-target="#collapseTwo"><a href="/item/form?id=${item.id}">Edit</a></td>
+                    <td data-toggle="collapse" data-target="#collapseTwo">
+                        <a class="btn btn-outline-warning" href="<c:url value="/item/archive?id=${item.id}"/>" role="button">archive</a>
+                        <a class="btn btn-outline-danger" href="<c:url value="/item/delete?id=${item.id}"/>" role="button">delete</a>
+
+                    </td>
 
 
                 <%--                    <td data-toggle="collapse" data-target="#collapseTwo">desc</td>--%>

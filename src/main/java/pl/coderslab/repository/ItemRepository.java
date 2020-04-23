@@ -11,10 +11,15 @@ import java.util.List;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
-    List<Item> findAllByUser_Id(Long id);
+    List<Item> findAllByUser_IdAndArchivedIsFalse(Long id);
+    Item findFirstByIdAndArchivedIsFalse(Long id);
 
-//    @Query("select i from Item i where i.user.id = :id ")
-//    List<Item> findAllByUser_Id(@Param("id") Long id);
+//    int countItems();
+
+    @Query("SELECT sum (i.importance) from Item i")
+    int importanceSum();
+
+
 
 
 

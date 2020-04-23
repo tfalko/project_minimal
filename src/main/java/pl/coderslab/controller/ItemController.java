@@ -67,7 +67,7 @@ public class ItemController {
     @ModelAttribute("items")
     public List<Item> getAllItems(@AuthenticationPrincipal CurrentUser currentUser, HttpServletRequest request){
         Long id = currentUser.getUser().getId();
-        return itemRepository.findAllByUser_Id(id);
+        return itemRepository.findAllByUser_IdAndArchivedIsFalse(id);
     }
 
     @RequestMapping("/all")
@@ -76,5 +76,30 @@ public class ItemController {
     }
 
 
+    @ModelAttribute("importanceSum")
+    public int sum(){
+        return itemRepository.importanceSum();
+    }
+
+    @RequestMapping("/stats")
+    public String stats(){
+        return "stats";
+    }
+
+    @RequestMapping("/archive")
+    public String archiveItem(@RequestParam Long id){
+
+        Item item = itemRepository.findFirstByIdAndArchivedIsFalse(id);
+        item.setArchived(true);
+        itemRepository.save(item);
+        return "redirect:all";
+    }
+
+    @RequestMapping("/delete")
+    public String deleteItem(@RequestParam Long id){
+        Item item = itemRepository.findFirstByIdAndArchivedIsFalse(id);
+        itemRepository.delete(item);
+        return "redirect:all";
+    }
 
 }
