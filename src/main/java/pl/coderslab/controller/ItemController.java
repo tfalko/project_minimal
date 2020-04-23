@@ -69,11 +69,54 @@ public class ItemController {
         Long id = currentUser.getUser().getId();
         return itemRepository.findAllByUser_IdAndArchivedIsFalse(id);
     }
-
     @RequestMapping("/all")
     public String tableAll(){
         return "/item/all";
     }
+
+
+    @ModelAttribute("itemsByName")
+    public List<Item> getAllItemsByName(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.findAllByUser_IdAndArchivedIsFalseOrderByNameAsc(id);
+    }
+    @RequestMapping("/allByName")
+    public String tableAllByName(){
+        return "/item/allByName";
+    }
+
+    @ModelAttribute("itemsByCategory")
+    public List<Item> getAllItemsByCategory(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.findAllByUser_IdAndArchivedIsFalseOrderByNameAsc(id);
+    }
+
+    @RequestMapping("/allByCategory")
+    public String tableAllByCategory(){
+        return "/item/allByCategory";
+    }
+
+
+    @ModelAttribute("itemsByImportance")
+    public List<Item> getAllItemsByImportance(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.findAllByUser_IdAndArchivedIsFalseOrderByImportanceAsc(id);
+    }
+
+    @RequestMapping("/allByImportance")
+    public String tableAllByImportance(){
+        return "/item/allByImportance";
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     @ModelAttribute("importanceSum")

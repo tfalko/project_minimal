@@ -86,15 +86,15 @@
         <table class="table table-striped">
 
             <th>
-            <tr>
-                <td><a href="/item/all">#</a></td>
-                <td><a href="/item/allByName">Name</a></td>
-                <td><a href="/item/allByCategory">Category</a></td>
-                <td><a href="/item/allByImportance">Importance</a></td>
-                <td>Action</td>
-            </tr>
+                <tr>
+                    <td><a href="/item/all">#</a></td>
+                    <td><a href="/item/allByName">Name</a></td>
+                    <td><a href="/item/allByCategory">Category</a></td>
+                    <td><a href="/item/allByImportance">Importance</a></td>
+                    <td>Action</td>
+                </tr>
             </th>
-            <c:forEach items="${items}" var="item" varStatus="loopCounter">
+            <c:forEach items="${itemsByName}" var="item" varStatus="loopCounter">
 
                 <tr class="accordion-toggle">
                     <td data-toggle="collapse" data-target="#collapseTwo"><c:out value="${loopCounter.count}"/></td>
@@ -108,13 +108,13 @@
                     </td>
 
 
-                <%--                    <td data-toggle="collapse" data-target="#collapseTwo">desc</td>--%>
+                        <%--                    <td data-toggle="collapse" data-target="#collapseTwo">desc</td>--%>
                 </tr>
                 <tr>
                     <td></td>
                     <td colspan="4">
                         <div id="collapseTwo" class="collapse in">
-                          <b> Description: </b> <c:out value="${item.description}"/>
+                            <b> Description: </b> <c:out value="${item.description}"/>
                         </div>
                     </td>
                 </tr>

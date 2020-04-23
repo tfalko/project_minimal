@@ -15,6 +15,10 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     List<Item> findAllByUser_IdAndArchivedIsTrue(Long id);
     Long countItemsByUser_id(Long id);
 
+    List<Item> findAllByUser_IdAndArchivedIsFalseOrderByNameAsc(Long id);
+    List<Item> findAllByUser_IdAndArchivedIsFalseOrderByCategoryNameAsc(Long id);
+    List<Item> findAllByUser_IdAndArchivedIsFalseOrderByImportanceAsc(Long id);
+
 
     Item findFirstByIdAndArchivedIsFalse(Long id);
     Item findFirstByIdAndArchivedIsTrue(Long id);

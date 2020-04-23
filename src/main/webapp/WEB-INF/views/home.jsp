@@ -60,7 +60,6 @@
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/item/form">Add Item</a>
                     <a class="dropdown-item" href="/category/form">Add Category</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -71,14 +70,7 @@
                     <a class="dropdown-item" href="/item/archiveList">Archived items</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown02">
-                    <a class="dropdown-item" href="/item/all">All items</a>
-                    <a class="dropdown-item" href="">Add Category</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+
         </ul>
         <li class="nav-item my-2 my-lg-0">
             <a class="nav-link" href="/logout">Logout</a>

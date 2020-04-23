@@ -1,8 +1,7 @@
 package pl.coderslab.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -15,8 +14,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(unique = true, length = 60)
     private String username;
+
+//    @Size(min=2, max=20)
     private String password;
     private int enabled;
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -24,30 +26,17 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+//    @Min(1)
+//    @Max(1000)
+//    private int limit;
 
 
-   // (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
-
-
-
-
-
-
-
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-//    private List<Item> items;
-
-//    public User() {
-//        items = new ArrayList<>();
+//    public int getLimit() {
+//        return limit;
 //    }
 //
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
+//    public void setLimit(int limit) {
+//        this.limit = limit;
 //    }
 
     public Long getId() {
@@ -58,29 +47,6 @@ public class User {
         this.id = id;
     }
 
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
 
 
     public String getUsername() {
