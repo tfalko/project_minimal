@@ -77,8 +77,21 @@ public class ItemController {
 
 
     @ModelAttribute("importanceSum")
-    public int sum(){
-        return itemRepository.importanceSum();
+    public int sum(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.importanceSum(id);
+    }
+
+    @ModelAttribute("itemSum")
+    public int itemSum(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.countItems(id);
+    }
+
+    @ModelAttribute("avg")
+    public int avgImportance(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.avgImportance(id);
     }
 
     @RequestMapping("/stats")
@@ -102,4 +115,15 @@ public class ItemController {
         return "redirect:all";
     }
 
+    @ModelAttribute("archiveList")
+    public List<Item> archiveList(@AuthenticationPrincipal CurrentUser currentUser){
+        Long id = currentUser.getUser().getId();
+        return itemRepository.findAllByUser_IdAndArchivedIsTrue(id);
+    }
+
+
+    @RequestMapping("/archiveList")
+    public String archiveList() {
+        return "item/archiveList";
+    }
 }

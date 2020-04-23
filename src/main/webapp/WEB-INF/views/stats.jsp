@@ -18,11 +18,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        body {
+            background-image: url("/resources/images/background2.jpg");
+        }
+    </style>
 </head>
 
 
 
-<body class="">
+<body class="" id="body">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,12 +82,31 @@
 </nav>
 
 <main role="main" class="container">
+    <div class="jumbotron">
 
-    <p>IS VALUE HERE?</p>
-    <c:out value="${importanceSum}"/>
+        <table class="table table-striped">
+            <tr>
+                <td>#</td>
+                <td>value</td>
+            </tr>
+            <tr>
+                <td>importance:</td>
+                <td> <c:out value="${importanceSum}"/></td>
+            </tr>
+            <tr>
+                <td>number of items </td>
+                <td><c:out value="${itemSum}"/> </td>
+            </tr>
+            <tr>
+                <td>average importance: </td>
+                <td><c:out value="${itemSum}"/> </td>
+            </tr>
+        </table>
 
 
 
+
+</div>
 
 </main><!-- /.container -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

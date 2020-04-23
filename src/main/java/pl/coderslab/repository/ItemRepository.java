@@ -12,12 +12,23 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
     List<Item> findAllByUser_IdAndArchivedIsFalse(Long id);
+    List<Item> findAllByUser_IdAndArchivedIsTrue(Long id);
+    Long countItemsByUser_id(Long id);
+
+
     Item findFirstByIdAndArchivedIsFalse(Long id);
 
-//    int countItems();
+    @Query("select count(i) from Item i where i.user.id =:id")
+    int countItems(Long id);
 
-    @Query("SELECT sum (i.importance) from Item i")
-    int importanceSum();
+    @Query("SELECT sum (i.importance) from Item i where i.user.id =:id")
+    int importanceSum(Long id);
+
+    @Query("select avg (i.importance) from Item i where i.user.id =:id")
+    int avgImportance(Long id);
+
+//    @Query("select i from Item limit)
+//    Item firstFiveByDate();
 
 
 
