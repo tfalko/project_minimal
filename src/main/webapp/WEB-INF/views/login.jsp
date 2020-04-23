@@ -76,17 +76,22 @@
 <div class="text-center">
 <main role="main" class="container">
     <div class="jumbotron">
-        <form class="sign-in">
+        <div class="container pt-4 pb-4">
+            <div class="border-dashed view-height">
+                <div class="container w-25" style="text-align: center">
+
         <form:form method="post" modelAttribute="user">
             <form:hidden path="id" />
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <div><label> User Name:<input type="text" name="username"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
+            <button class="btn btn-lg btn-primary btn-block" style="align-self: center" type="submit">Sign in</button>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form:form>
-        </form>
     </div>
     </div>
+        </div></div>
+
 </main>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
