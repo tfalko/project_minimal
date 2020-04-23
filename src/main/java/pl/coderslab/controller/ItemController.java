@@ -108,6 +108,15 @@ public class ItemController {
         return "redirect:all";
     }
 
+    @RequestMapping("/unarchive")
+    public String unarchiveItem(@RequestParam Long id){
+
+        Item item = itemRepository.findFirstByIdAndArchivedIsTrue(id);
+        item.setArchived(false);
+        itemRepository.save(item);
+        return "redirect:archiveList";
+    }
+
     @RequestMapping("/delete")
     public String deleteItem(@RequestParam Long id){
         Item item = itemRepository.findFirstByIdAndArchivedIsFalse(id);

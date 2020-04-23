@@ -17,6 +17,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
     Item findFirstByIdAndArchivedIsFalse(Long id);
+    Item findFirstByIdAndArchivedIsTrue(Long id);
 
     @Query("select count(i) from Item i where i.user.id =:id")
     int countItems(Long id);

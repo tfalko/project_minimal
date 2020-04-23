@@ -20,7 +20,7 @@
     <title>Hello, world!</title>
     <style>
         body {
-            background-image: url("/resources/images/background2.jpg");
+            background-image: url("static/background2.jpg");
         }
     </style>
 </head>
