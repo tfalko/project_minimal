@@ -88,7 +88,7 @@ public class ItemController {
     @ModelAttribute("itemsByCategory")
     public List<Item> getAllItemsByCategory(@AuthenticationPrincipal CurrentUser currentUser){
         Long id = currentUser.getUser().getId();
-        return itemRepository.findAllByUser_IdAndArchivedIsFalseOrderByNameAsc(id);
+        return itemRepository.findAllByUser_IdAndArchivedIsFalseOrderByCategoryNameAsc(id);
     }
 
     @RequestMapping("/allByCategory")

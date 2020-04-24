@@ -22,7 +22,8 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -41,7 +42,8 @@
                 <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Stats</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Stuff</a>
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Add Stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/item/form">Add Item</a>
                     <a class="dropdown-item" href="/category/form">Add Category</a>
@@ -49,7 +51,8 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
+                <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="/category/all">All categories</a>
@@ -57,7 +60,8 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
+                <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="">Add Category</a>
@@ -76,52 +80,55 @@
 <main role="main" class="container">
     <div class="jumbotron">
 
-        <form:form modelAttribute="item" method="post">
-            <form:hidden path="id"/>
-            <form:hidden path="user.id"/>
-        <div class="form-group rowColor">
-            <label for="name" class="col-sm-2 col-form-label">name</label>
-            <div class="col-sm-10">
-                <form:input path="name" cssClass="form-control" id="name" placeholder="Enter name"/>
-                <form:errors path="name"/><br>
-            </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="importance" class="col-sm-2 col-form-label">Importance</label>
-            <div class="col-sm-10">
-                <form:select path="importance" cssClass="form-control" id="importance" placeholder="Enter importance">
-                    <form:option value="1"> 1 </form:option>
-                    <form:option value="2"> 2 </form:option>
-                    <form:option value="3"> 3 </form:option>
-                    <form:option value="4"> 4 </form:option>
-                    <form:option value="5"> 5 </form:option>
-                    <form:option value="6"> 6 </form:option>
-                    <form:option value="7"> 7 </form:option>
-                    <form:option value="8"> 8 </form:option>
-                    <form:option value="9"> 9 </form:option>
-                    <form:option value="10"> 10 </form:option>
-                    <form:errors path="importance"/><br>
-                </form:select>
-            </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="category.id" class="col-sm-2 col-form-label">category</label>
-            <div class="col-sm-10">
-                <form:select items="${categories}" path="category.id" itemValue="id" itemLabel="name"/>
-                <form:errors path="category" cssClass="error"/><br>
-            </div>
-        </div>
-        <div class="form-group rowColor">
-            <label for="description" class="col-sm-2 col-form-label">description</label>
-            <div class="col-sm-10">
-                <form:textarea path="description" cssClass="form-control" id="description" placeholder="describe your item"/>
-                <form:errors path="description"/><br>
-            </div>
-        </div>
-                <button type="submit" class="btn btn-primary">Add item</button>
-                </form:form>
+                    <form:form modelAttribute="item" method="post">
+                        <form:hidden path="id"/>
+                        <form:hidden path="user.id"/>
+                        <div class="form-group rowColor">
+                            <label for="name" class="col-sm-2 col-form-label">name</label>
+                            <div class="col-sm-10">
+                                <form:input path="name" cssClass="form-control" id="name" placeholder="Enter name"/>
+                                <form:errors path="name"/><br>
+                            </div>
+                        </div>
+                        <div class="form-group rowColor">
+                            <label for="importance" class="col-sm-2 col-form-label">Importance</label>
+                            <div class="col-sm-10">
+                                <form:select path="importance" cssClass="form-control" id="importance"
+                                             placeholder="Enter importance">
+                                    <form:option value="1"> 1 </form:option>
+                                    <form:option value="2"> 2 </form:option>
+                                    <form:option value="3"> 3 </form:option>
+                                    <form:option value="4"> 4 </form:option>
+                                    <form:option value="5"> 5 </form:option>
+                                    <form:option value="6"> 6 </form:option>
+                                    <form:option value="7"> 7 </form:option>
+                                    <form:option value="8"> 8 </form:option>
+                                    <form:option value="9"> 9 </form:option>
+                                    <form:option value="10"> 10 </form:option>
+                                    <form:errors path="importance"/><br>
+                                </form:select>
+                            </div>
+                        </div>
+                        <div class="form-group rowColor">
+                            <label for="category.id" class="col-sm-2 col-form-label">category</label>
+                            <div class="col-sm-10">
+                                <form:select items="${categories}" path="category.id" itemValue="id" itemLabel="name"/>
+                                <form:errors path="category" cssClass="error"/><br>
+                            </div>
+                        </div>
+                        <div class="form-group rowColor">
+                            <label for="description" class="col-sm-2 col-form-label">description</label>
+                            <div class="col-sm-10">
+                                <form:textarea path="description" cssClass="form-control" id="description"
+                                               placeholder="describe your item"/>
+                                <form:errors path="description"/><br>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add item</button>
+                    </form:form>
 
-            </div>
+                </div>
+
 
 </main>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

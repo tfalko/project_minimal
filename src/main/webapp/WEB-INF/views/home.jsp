@@ -10,6 +10,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/fc153b3c9d.js" crossorigin="anonymous"></script>
+
     <style>
     body {
         background-image: url("https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2195&q=80");
@@ -19,13 +21,6 @@
         -o-background-size: cover;
 
     }
-     /*#footer {*/
-     /*    position: fixed;*/
-     /*    left: 0;*/
-     /*    bottom: 0;*/
-     /*    width: 100%;*/
-     /*}*/
-
 </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -43,7 +38,7 @@
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><i class="fab fa-less" style="size: 20px"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -51,26 +46,26 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login"><i class="fas fa-user"></i> Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true">Register</a>
+                <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true"><i class="fas fa-user-plus"></i> Register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/item/stats" tabindex="-1" aria-disabled="true">Stats</a>
+                <a class="nav-link" href="/item/stats" tabindex="-1" aria-disabled="true"><i class="fas fa-percentage"></i> Stats</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Stuff</a>
+                <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Add Stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/item/form">Add Item</a>
                     <a class="dropdown-item" href="/category/form">Add Category</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display stuff</a>
+                <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-eye"></i> Display stuff</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown02">
                     <a class="dropdown-item" href="/item/all">All items</a>
                     <a class="dropdown-item" href="/category/all">All categories</a>
@@ -80,25 +75,25 @@
 
         </ul>
         <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
 
 
     </div>
 </nav>
 
-<p>where is my background???</p>
-<p>where is my background???</p>
+<div class="row h-100 align-items-center justify-content-center text-center" style="margin-top: 200px">
+    <div class="col-lg-10 align-self-end">
+        <h1 class="text-uppercase text-white font-weight-bold">Less stuff</h1>
+        <hr class="divider my-4">
+    </div>
+    <div class="col-lg-8 align-self-baseline">
+        <p class="text-white-75 font-weight-light mb-5">Learn how to implement minimal lifestyle to ur life </p>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+    </div>
+</div>
 
-<p>where is my background???</p>
 
-<p>where is my background???</p>
-
-<jsp:include page="/WEB-INF/views/footer.jsp"/>
-<%--<footer class="page-footer font-small blue" id="footer">--%>
-<%--    <div class="footer-copyright text-center py-3">© 2020 Copyright: t.falkowski--%>
-<%--    </div>--%>
-<%--</footer>--%>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

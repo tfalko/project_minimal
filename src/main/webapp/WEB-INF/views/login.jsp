@@ -17,7 +17,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2195&q=80");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
 
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
@@ -75,7 +84,7 @@
 </nav>
 <div class="text-center">
 <main role="main" class="container">
-    <div class="jumbotron">
+    <div class="">
         <div class="container pt-4 pb-4">
             <div class="border-dashed view-height">
                 <div class="container w-25" style="text-align: center">
